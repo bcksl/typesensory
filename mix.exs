@@ -1,10 +1,14 @@
 defmodule Typesensory.Mixfile do
   use Mix.Project
 
+  @version "0.1.0"
+  @source_url "https://github.com/bcksl/typesensory"
+  @description "An Elixir client for Typesense"
+
   def project do
     [
       app: :typesensory,
-      version: "0.24.0",
+      version: @version,
       elixir: "~> 1.10",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
