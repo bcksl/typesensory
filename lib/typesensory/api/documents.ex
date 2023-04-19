@@ -50,7 +50,7 @@ defmodule Typesensory.Api.Documents do
   - `connection` (Typesensory.Connection): Connection to server
   - `collection_name` (String.t): The name of the collection to delete documents from
   - `opts` (keyword): Optional parameters
-    - `:deleteDocumentsParameters` (DeleteDocumentsDeleteDocumentsParametersParameter): 
+    - `:deleteDocumentsParameters` (DeleteDocumentsDeleteDocumentsParametersParameter):
 
   ### Returns
 
@@ -149,7 +149,7 @@ defmodule Typesensory.Api.Documents do
   - `connection` (Typesensory.Connection): Connection to server
   - `collection_name` (String.t): The name of the collection
   - `opts` (keyword): Optional parameters
-    - `:exportDocumentsParameters` (ExportDocumentsExportDocumentsParametersParameter): 
+    - `:exportDocumentsParameters` (ExportDocumentsExportDocumentsParametersParameter):
 
   ### Returns
 
@@ -341,7 +341,7 @@ defmodule Typesensory.Api.Documents do
   - `collection_name` (String.t): The name of the collection
   - `body` (String.t): The json array of documents or the JSONL file to import
   - `opts` (keyword): Optional parameters
-    - `:importDocumentsParameters` (ImportDocumentsImportDocumentsParametersParameter): 
+    - `:importDocumentsParameters` (ImportDocumentsImportDocumentsParametersParameter):
 
   ### Returns
 
@@ -388,7 +388,7 @@ defmodule Typesensory.Api.Documents do
   - `{:ok, map()}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec index_document(Tesla.Env.client, String.t, %{optional(String.t) => }, keyword()) :: {:ok, Map.t} | {:ok, Typesensory.Model.ApiResponse.t} | {:error, Tesla.Env.t}
+  @spec index_document(Tesla.Env.client, String.t, %{optional(String.t) => any()}, keyword()) :: {:ok, Map.t} | {:ok, Typesensory.Model.ApiResponse.t} | {:error, Tesla.Env.t}
   def index_document(connection, collection_name, body, opts \\ []) do
     optional_params = %{
       :action => :query
@@ -417,16 +417,16 @@ defmodule Typesensory.Api.Documents do
   ### Parameters
 
   - `connection` (Typesensory.Connection): Connection to server
-  - `multi_search_parameters` (MultiSearchParameters): 
+  - `multi_search_parameters` (MultiSearchParameters):
   - `opts` (keyword): Optional parameters
-    - `:body` (MultiSearchSearchesParameter): 
+    - `:body` (MultiSearchSearchesParameter):
 
   ### Returns
 
   - `{:ok, Typesensory.Model.MultiSearchResult.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec multi_search(Tesla.Env.client, %{optional(String.t) => }, keyword()) :: {:ok, Typesensory.Model.ApiResponse.t} | {:ok, Typesensory.Model.MultiSearchResult.t} | {:error, Tesla.Env.t}
+  @spec multi_search(Tesla.Env.client, %{optional(String.t) => any()}, keyword()) :: {:ok, Typesensory.Model.ApiResponse.t} | {:ok, Typesensory.Model.MultiSearchResult.t} | {:error, Tesla.Env.t}
   def multi_search(connection, multi_search_parameters, opts \\ []) do
     optional_params = %{
       :body => :body
@@ -457,7 +457,7 @@ defmodule Typesensory.Api.Documents do
 
   - `connection` (Typesensory.Connection): Connection to server
   - `collection_name` (String.t): The name of the collection to search for the document under
-  - `search_parameters` (SearchParameters): 
+  - `search_parameters` (SearchParameters):
   - `opts` (keyword): Optional parameters
 
   ### Returns
@@ -465,7 +465,7 @@ defmodule Typesensory.Api.Documents do
   - `{:ok, Typesensory.Model.SearchResult.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec search_collection(Tesla.Env.client, String.t, %{optional(String.t) => }, keyword()) :: {:ok, Typesensory.Model.ApiResponse.t} | {:ok, Typesensory.Model.SearchResult.t} | {:error, Tesla.Env.t}
+  @spec search_collection(Tesla.Env.client, String.t, %{optional(String.t) => any()}, keyword()) :: {:ok, Typesensory.Model.ApiResponse.t} | {:ok, Typesensory.Model.SearchResult.t} | {:error, Tesla.Env.t}
   def search_collection(connection, collection_name, search_parameters, _opts \\ []) do
     request =
       %{}
@@ -500,7 +500,7 @@ defmodule Typesensory.Api.Documents do
   - `{:ok, map()}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec update_document(Tesla.Env.client, String.t, String.t, %{optional(String.t) => }, keyword()) :: {:ok, Map.t} | {:ok, Typesensory.Model.ApiResponse.t} | {:error, Tesla.Env.t}
+  @spec update_document(Tesla.Env.client, String.t, String.t, %{optional(String.t) => any()}, keyword()) :: {:ok, Map.t} | {:ok, Typesensory.Model.ApiResponse.t} | {:error, Tesla.Env.t}
   def update_document(connection, collection_name, document_id, body, _opts \\ []) do
     request =
       %{}
@@ -527,14 +527,14 @@ defmodule Typesensory.Api.Documents do
   - `collection_name` (String.t): The name of the collection to update documents in
   - `body` (map()): The document fields to be updated
   - `opts` (keyword): Optional parameters
-    - `:updateDocumentsParameters` (UpdateDocumentsUpdateDocumentsParametersParameter): 
+    - `:updateDocumentsParameters` (UpdateDocumentsUpdateDocumentsParametersParameter):
 
   ### Returns
 
   - `{:ok, Typesensory.Model.UpdateDocuments200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec update_documents(Tesla.Env.client, String.t, %{optional(String.t) => }, keyword()) :: {:ok, Typesensory.Model.ApiResponse.t} | {:ok, Typesensory.Model.UpdateDocuments200Response.t} | {:error, Tesla.Env.t}
+  @spec update_documents(Tesla.Env.client, String.t, %{optional(String.t) => any()}, keyword()) :: {:ok, Typesensory.Model.ApiResponse.t} | {:ok, Typesensory.Model.UpdateDocuments200Response.t} | {:error, Tesla.Env.t}
   def update_documents(connection, collection_name, body, opts \\ []) do
     optional_params = %{
       :updateDocumentsParameters => :query
