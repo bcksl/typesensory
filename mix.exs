@@ -13,8 +13,10 @@ defmodule Typesensory.Mixfile do
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       package: package(),
-      description: "An open source search engine for building delightful search experiences.",
-      deps: deps()
+      deps: deps(),
+      docs: docs(),
+      name: "Typesensory",
+      description: @description
     ]
   end
 
@@ -46,7 +48,20 @@ defmodule Typesensory.Mixfile do
   defp package do
     [
       name: "typesensory",
-      files: ~w(.formatter.exs config lib mix.exs README* LICENSE*)
+      files: ~w(.formatter.exs config lib mix.exs README* LICENSE* typesense.openapi.yml),
+      maintainers: ~w(bcksl),
+      licenses: ~w(MIT),
+      links: %{
+        Documentation: "https://hexdocs.pm/typesensory",
+        GitHub: @source_url
+      }
+    ]
+  end
+
+  defp docs do
+    [
+      source_ref: "v#{@version}",
+      formatters: ["html", "epub"]
     ]
   end
 end
