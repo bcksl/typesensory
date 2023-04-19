@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.DeleteDocumentsDeleteDocumentsParametersParameter do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -13,9 +13,9 @@ defmodule Typesensory.Model.DeleteDocumentsDeleteDocumentsParametersParameter do
   ]
 
   @type t :: %__MODULE__{
-    :filter_by => String.t | nil,
-    :batch_size => integer() | nil
-  }
+          :filter_by => String.t() | nil,
+          :batch_size => integer() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.DeleteDocumentsDeleteDocumentsParametersParameter do
@@ -23,4 +23,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.DeleteDocumentsDeleteDocumentsPar
     value
   end
 end
-

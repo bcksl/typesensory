@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.ApiKeyAllOf do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -13,9 +13,9 @@ defmodule Typesensory.Model.ApiKeyAllOf do
   ]
 
   @type t :: %__MODULE__{
-    :id => integer() | nil,
-    :value_prefix => String.t | nil
-  }
+          :id => integer() | nil,
+          :value_prefix => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.ApiKeyAllOf do
@@ -23,4 +23,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.ApiKeyAllOf do
     value
   end
 end
-

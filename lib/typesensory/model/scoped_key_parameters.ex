@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.ScopedKeyParameters do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -13,9 +13,9 @@ defmodule Typesensory.Model.ScopedKeyParameters do
   ]
 
   @type t :: %__MODULE__{
-    :filter_by => String.t | nil,
-    :expires_at => float() | nil
-  }
+          :filter_by => String.t() | nil,
+          :expires_at => float() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.ScopedKeyParameters do
@@ -23,4 +23,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.ScopedKeyParameters do
     value
   end
 end
-

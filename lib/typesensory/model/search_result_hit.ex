@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.SearchResultHit do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -17,20 +17,20 @@ defmodule Typesensory.Model.SearchResultHit do
   ]
 
   @type t :: %__MODULE__{
-    :highlights => [Typesensory.Model.SearchHighlight.t] | nil,
-    :highlight => %{optional(String.t) => any()} | nil,
-    :document => %{optional(String.t) => map()} | nil,
-    :text_match => integer() | nil,
-    :geo_distance_meters => %{optional(String.t) => integer()} | nil,
-    :vector_distance => float() | nil
-  }
+          :highlights => [Typesensory.Model.SearchHighlight.t()] | nil,
+          :highlight => %{optional(String.t()) => any()} | nil,
+          :document => %{optional(String.t()) => map()} | nil,
+          :text_match => integer() | nil,
+          :geo_distance_meters => %{optional(String.t()) => integer()} | nil,
+          :vector_distance => float() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.SearchResultHit do
   import Typesensory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:highlights, :list, Typesensory.Model.SearchHighlight, options)
   end
 end
-

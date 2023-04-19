@@ -24,7 +24,8 @@ defmodule Typesensory.Api.Operations do
   - `{:ok, Typesensory.Model.SuccessStatus.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec take_snapshot(Tesla.Env.client, String.t, keyword()) :: {:ok, Typesensory.Model.SuccessStatus.t} | {:error, Tesla.Env.t}
+  @spec take_snapshot(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Typesensory.Model.SuccessStatus.t()} | {:error, Tesla.Env.t()}
   def take_snapshot(connection, snapshot_path, _opts \\ []) do
     request =
       %{}
@@ -55,7 +56,8 @@ defmodule Typesensory.Api.Operations do
   - `{:ok, Typesensory.Model.SuccessStatus.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec vote(Tesla.Env.client, keyword()) :: {:ok, Typesensory.Model.SuccessStatus.t} | {:error, Tesla.Env.t}
+  @spec vote(Tesla.Env.client(), keyword()) ::
+          {:ok, Typesensory.Model.SuccessStatus.t()} | {:error, Tesla.Env.t()}
   def vote(connection, _opts \\ []) do
     request =
       %{}

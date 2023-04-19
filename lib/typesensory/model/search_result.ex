@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.SearchResult do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -20,20 +20,21 @@ defmodule Typesensory.Model.SearchResult do
   ]
 
   @type t :: %__MODULE__{
-    :facet_counts => [Typesensory.Model.FacetCounts.t] | nil,
-    :found => integer() | nil,
-    :search_time_ms => integer() | nil,
-    :out_of => integer() | nil,
-    :search_cutoff => boolean() | nil,
-    :page => integer() | nil,
-    :grouped_hits => [Typesensory.Model.SearchGroupedHit.t] | nil,
-    :hits => [Typesensory.Model.SearchResultHit.t] | nil,
-    :request_params => Typesensory.Model.SearchResultRequestParams.t | nil
-  }
+          :facet_counts => [Typesensory.Model.FacetCounts.t()] | nil,
+          :found => integer() | nil,
+          :search_time_ms => integer() | nil,
+          :out_of => integer() | nil,
+          :search_cutoff => boolean() | nil,
+          :page => integer() | nil,
+          :grouped_hits => [Typesensory.Model.SearchGroupedHit.t()] | nil,
+          :hits => [Typesensory.Model.SearchResultHit.t()] | nil,
+          :request_params => Typesensory.Model.SearchResultRequestParams.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.SearchResult do
   import Typesensory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:facet_counts, :list, Typesensory.Model.FacetCounts, options)
@@ -42,4 +43,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.SearchResult do
     |> deserialize(:request_params, :struct, Typesensory.Model.SearchResultRequestParams, options)
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.SearchSynonymsResponse do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,15 +12,15 @@ defmodule Typesensory.Model.SearchSynonymsResponse do
   ]
 
   @type t :: %__MODULE__{
-    :synonyms => [Typesensory.Model.SearchSynonym.t]
-  }
+          :synonyms => [Typesensory.Model.SearchSynonym.t()]
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.SearchSynonymsResponse do
   import Typesensory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:synonyms, :list, Typesensory.Model.SearchSynonym, options)
   end
 end
-

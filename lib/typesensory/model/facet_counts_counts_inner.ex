@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.FacetCountsCountsInner do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -14,10 +14,10 @@ defmodule Typesensory.Model.FacetCountsCountsInner do
   ]
 
   @type t :: %__MODULE__{
-    :count => integer() | nil,
-    :highlighted => String.t | nil,
-    :value => String.t | nil
-  }
+          :count => integer() | nil,
+          :highlighted => String.t() | nil,
+          :value => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.FacetCountsCountsInner do
@@ -25,4 +25,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.FacetCountsCountsInner do
     value
   end
 end
-

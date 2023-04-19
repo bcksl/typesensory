@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.Field do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -21,17 +21,17 @@ defmodule Typesensory.Model.Field do
   ]
 
   @type t :: %__MODULE__{
-    :name => String.t,
-    :type => String.t,
-    :optional => boolean() | nil,
-    :facet => boolean() | nil,
-    :index => boolean() | nil,
-    :locale => String.t | nil,
-    :sort => boolean() | nil,
-    :infix => boolean() | nil,
-    :num_dim => integer() | nil,
-    :drop => boolean() | nil
-  }
+          :name => String.t(),
+          :type => String.t(),
+          :optional => boolean() | nil,
+          :facet => boolean() | nil,
+          :index => boolean() | nil,
+          :locale => String.t() | nil,
+          :sort => boolean() | nil,
+          :infix => boolean() | nil,
+          :num_dim => integer() | nil,
+          :drop => boolean() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.Field do
@@ -39,4 +39,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.Field do
     value
   end
 end
-

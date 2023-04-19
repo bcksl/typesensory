@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.ApiKeysResponse do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,15 +12,15 @@ defmodule Typesensory.Model.ApiKeysResponse do
   ]
 
   @type t :: %__MODULE__{
-    :keys => [Typesensory.Model.ApiKey.t]
-  }
+          :keys => [Typesensory.Model.ApiKey.t()]
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.ApiKeysResponse do
   import Typesensory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:keys, :list, Typesensory.Model.ApiKey, options)
   end
 end
-

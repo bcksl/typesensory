@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.SearchGroupedHit do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -13,16 +13,16 @@ defmodule Typesensory.Model.SearchGroupedHit do
   ]
 
   @type t :: %__MODULE__{
-    :group_key => [map()],
-    :hits => [Typesensory.Model.SearchResultHit.t]
-  }
+          :group_key => [map()],
+          :hits => [Typesensory.Model.SearchResultHit.t()]
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.SearchGroupedHit do
   import Typesensory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:hits, :list, Typesensory.Model.SearchResultHit, options)
   end
 end
-

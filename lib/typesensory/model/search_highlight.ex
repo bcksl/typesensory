@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.SearchHighlight do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -18,14 +18,14 @@ defmodule Typesensory.Model.SearchHighlight do
   ]
 
   @type t :: %__MODULE__{
-    :field => String.t | nil,
-    :snippet => String.t | nil,
-    :snippets => [String.t] | nil,
-    :value => String.t | nil,
-    :values => [String.t] | nil,
-    :indices => [integer()] | nil,
-    :matched_tokens => [map()] | nil
-  }
+          :field => String.t() | nil,
+          :snippet => String.t() | nil,
+          :snippets => [String.t()] | nil,
+          :value => String.t() | nil,
+          :values => [String.t()] | nil,
+          :indices => [integer()] | nil,
+          :matched_tokens => [map()] | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.SearchHighlight do
@@ -33,4 +33,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.SearchHighlight do
     value
   end
 end
-

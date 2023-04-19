@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.DeleteDocuments200Response do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,8 +12,8 @@ defmodule Typesensory.Model.DeleteDocuments200Response do
   ]
 
   @type t :: %__MODULE__{
-    :num_deleted => integer()
-  }
+          :num_deleted => integer()
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.DeleteDocuments200Response do
@@ -21,4 +21,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.DeleteDocuments200Response do
     value
   end
 end
-

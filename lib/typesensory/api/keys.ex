@@ -24,7 +24,10 @@ defmodule Typesensory.Api.Keys do
   - `{:ok, Typesensory.Model.ApiKey.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_key(Tesla.Env.client, keyword()) :: {:ok, Typesensory.Model.ApiKey.t} | {:ok, Typesensory.Model.ApiResponse.t} | {:error, Tesla.Env.t}
+  @spec create_key(Tesla.Env.client(), keyword()) ::
+          {:ok, Typesensory.Model.ApiKey.t()}
+          | {:ok, Typesensory.Model.ApiResponse.t()}
+          | {:error, Tesla.Env.t()}
   def create_key(connection, opts \\ []) do
     optional_params = %{
       :body => :body
@@ -61,7 +64,10 @@ defmodule Typesensory.Api.Keys do
   - `{:ok, Typesensory.Model.ApiKey.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec delete_key(Tesla.Env.client, integer(), keyword()) :: {:ok, Typesensory.Model.ApiKey.t} | {:ok, Typesensory.Model.ApiResponse.t} | {:error, Tesla.Env.t}
+  @spec delete_key(Tesla.Env.client(), integer(), keyword()) ::
+          {:ok, Typesensory.Model.ApiKey.t()}
+          | {:ok, Typesensory.Model.ApiResponse.t()}
+          | {:error, Tesla.Env.t()}
   def delete_key(connection, key_id, _opts \\ []) do
     request =
       %{}
@@ -93,7 +99,10 @@ defmodule Typesensory.Api.Keys do
   - `{:ok, Typesensory.Model.ApiKey.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_key(Tesla.Env.client, integer(), keyword()) :: {:ok, Typesensory.Model.ApiKey.t} | {:ok, Typesensory.Model.ApiResponse.t} | {:error, Tesla.Env.t}
+  @spec get_key(Tesla.Env.client(), integer(), keyword()) ::
+          {:ok, Typesensory.Model.ApiKey.t()}
+          | {:ok, Typesensory.Model.ApiResponse.t()}
+          | {:error, Tesla.Env.t()}
   def get_key(connection, key_id, _opts \\ []) do
     request =
       %{}
@@ -122,7 +131,8 @@ defmodule Typesensory.Api.Keys do
   - `{:ok, Typesensory.Model.ApiKeysResponse.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_keys(Tesla.Env.client, keyword()) :: {:ok, Typesensory.Model.ApiKeysResponse.t} | {:error, Tesla.Env.t}
+  @spec get_keys(Tesla.Env.client(), keyword()) ::
+          {:ok, Typesensory.Model.ApiKeysResponse.t()} | {:error, Tesla.Env.t()}
   def get_keys(connection, _opts \\ []) do
     request =
       %{}

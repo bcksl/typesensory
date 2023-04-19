@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.SnapshotParameters do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,8 +12,8 @@ defmodule Typesensory.Model.SnapshotParameters do
   ]
 
   @type t :: %__MODULE__{
-    :snapshot_path => String.t | nil
-  }
+          :snapshot_path => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.SnapshotParameters do
@@ -21,4 +21,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.SnapshotParameters do
     value
   end
 end
-

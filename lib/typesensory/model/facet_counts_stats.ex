@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.FacetCountsStats do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -16,12 +16,12 @@ defmodule Typesensory.Model.FacetCountsStats do
   ]
 
   @type t :: %__MODULE__{
-    :max => float() | nil,
-    :min => float() | nil,
-    :sum => float() | nil,
-    :total_values => integer() | nil,
-    :avg => float() | nil
-  }
+          :max => float() | nil,
+          :min => float() | nil,
+          :sum => float() | nil,
+          :total_values => integer() | nil,
+          :avg => float() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.FacetCountsStats do
@@ -29,4 +29,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.FacetCountsStats do
     value
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.CollectionUpdateSchema do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,15 +12,15 @@ defmodule Typesensory.Model.CollectionUpdateSchema do
   ]
 
   @type t :: %__MODULE__{
-    :fields => [Typesensory.Model.Field.t]
-  }
+          :fields => [Typesensory.Model.Field.t()]
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.CollectionUpdateSchema do
   import Typesensory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:fields, :list, Typesensory.Model.Field, options)
   end
 end
-

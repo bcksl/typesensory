@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.MultiSearchResult do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,15 +12,15 @@ defmodule Typesensory.Model.MultiSearchResult do
   ]
 
   @type t :: %__MODULE__{
-    :results => [Typesensory.Model.SearchResult.t]
-  }
+          :results => [Typesensory.Model.SearchResult.t()]
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.MultiSearchResult do
   import Typesensory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:results, :list, Typesensory.Model.SearchResult, options)
   end
 end
-

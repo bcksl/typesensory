@@ -23,7 +23,8 @@ defmodule Typesensory.Api.Health do
   - `{:ok, Typesensory.Model.HealthStatus.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec health(Tesla.Env.client, keyword()) :: {:ok, Typesensory.Model.HealthStatus.t} | {:error, Tesla.Env.t}
+  @spec health(Tesla.Env.client(), keyword()) ::
+          {:ok, Typesensory.Model.HealthStatus.t()} | {:error, Tesla.Env.t()}
   def health(connection, _opts \\ []) do
     request =
       %{}

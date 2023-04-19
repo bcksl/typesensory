@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.SearchOverridesResponse do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,15 +12,15 @@ defmodule Typesensory.Model.SearchOverridesResponse do
   ]
 
   @type t :: %__MODULE__{
-    :overrides => [Typesensory.Model.SearchOverride.t]
-  }
+          :overrides => [Typesensory.Model.SearchOverride.t()]
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.SearchOverridesResponse do
   import Typesensory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:overrides, :list, Typesensory.Model.SearchOverride, options)
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.SearchParameters do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -54,50 +54,50 @@ defmodule Typesensory.Model.SearchParameters do
   ]
 
   @type t :: %__MODULE__{
-    :q => String.t,
-    :query_by => String.t,
-    :query_by_weights => String.t | nil,
-    :prefix => String.t | nil,
-    :infix => String.t | nil,
-    :max_extra_prefix => integer() | nil,
-    :max_extra_suffix => integer() | nil,
-    :filter_by => String.t | nil,
-    :sort_by => String.t | nil,
-    :facet_by => String.t | nil,
-    :max_facet_values => integer() | nil,
-    :facet_query => String.t | nil,
-    :num_typos => String.t | nil,
-    :page => integer() | nil,
-    :per_page => integer() | nil,
-    :group_by => String.t | nil,
-    :group_limit => integer() | nil,
-    :include_fields => String.t | nil,
-    :exclude_fields => String.t | nil,
-    :highlight_full_fields => String.t | nil,
-    :highlight_affix_num_tokens => integer() | nil,
-    :highlight_start_tag => String.t | nil,
-    :highlight_end_tag => String.t | nil,
-    :enable_highlight_v1 => boolean() | nil,
-    :snippet_threshold => integer() | nil,
-    :drop_tokens_threshold => integer() | nil,
-    :typo_tokens_threshold => integer() | nil,
-    :pinned_hits => String.t | nil,
-    :hidden_hits => String.t | nil,
-    :highlight_fields => String.t | nil,
-    :split_join_tokens => String.t | nil,
-    :pre_segmented_query => boolean() | nil,
-    :enable_overrides => boolean() | nil,
-    :prioritize_exact_match => boolean() | nil,
-    :max_candidates => integer() | nil,
-    :prioritize_token_position => boolean() | nil,
-    :exhaustive_search => boolean() | nil,
-    :search_cutoff_ms => integer() | nil,
-    :use_cache => boolean() | nil,
-    :cache_ttl => integer() | nil,
-    :min_len_1typo => integer() | nil,
-    :min_len_2typo => integer() | nil,
-    :vector_query => String.t | nil
-  }
+          :q => String.t(),
+          :query_by => String.t(),
+          :query_by_weights => String.t() | nil,
+          :prefix => String.t() | nil,
+          :infix => String.t() | nil,
+          :max_extra_prefix => integer() | nil,
+          :max_extra_suffix => integer() | nil,
+          :filter_by => String.t() | nil,
+          :sort_by => String.t() | nil,
+          :facet_by => String.t() | nil,
+          :max_facet_values => integer() | nil,
+          :facet_query => String.t() | nil,
+          :num_typos => String.t() | nil,
+          :page => integer() | nil,
+          :per_page => integer() | nil,
+          :group_by => String.t() | nil,
+          :group_limit => integer() | nil,
+          :include_fields => String.t() | nil,
+          :exclude_fields => String.t() | nil,
+          :highlight_full_fields => String.t() | nil,
+          :highlight_affix_num_tokens => integer() | nil,
+          :highlight_start_tag => String.t() | nil,
+          :highlight_end_tag => String.t() | nil,
+          :enable_highlight_v1 => boolean() | nil,
+          :snippet_threshold => integer() | nil,
+          :drop_tokens_threshold => integer() | nil,
+          :typo_tokens_threshold => integer() | nil,
+          :pinned_hits => String.t() | nil,
+          :hidden_hits => String.t() | nil,
+          :highlight_fields => String.t() | nil,
+          :split_join_tokens => String.t() | nil,
+          :pre_segmented_query => boolean() | nil,
+          :enable_overrides => boolean() | nil,
+          :prioritize_exact_match => boolean() | nil,
+          :max_candidates => integer() | nil,
+          :prioritize_token_position => boolean() | nil,
+          :exhaustive_search => boolean() | nil,
+          :search_cutoff_ms => integer() | nil,
+          :use_cache => boolean() | nil,
+          :cache_ttl => integer() | nil,
+          :min_len_1typo => integer() | nil,
+          :min_len_2typo => integer() | nil,
+          :vector_query => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.SearchParameters do
@@ -105,4 +105,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.SearchParameters do
     value
   end
 end
-

@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.CollectionResponseAllOf do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -13,9 +13,9 @@ defmodule Typesensory.Model.CollectionResponseAllOf do
   ]
 
   @type t :: %__MODULE__{
-    :num_documents => integer(),
-    :created_at => integer()
-  }
+          :num_documents => integer(),
+          :created_at => integer()
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.CollectionResponseAllOf do
@@ -23,4 +23,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.CollectionResponseAllOf do
     value
   end
 end
-

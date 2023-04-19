@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.CollectionAliasesResponse do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,15 +12,15 @@ defmodule Typesensory.Model.CollectionAliasesResponse do
   ]
 
   @type t :: %__MODULE__{
-    :aliases => [Typesensory.Model.CollectionAlias.t]
-  }
+          :aliases => [Typesensory.Model.CollectionAlias.t()]
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.CollectionAliasesResponse do
   import Typesensory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:aliases, :list, Typesensory.Model.CollectionAlias, options)
   end
 end
-

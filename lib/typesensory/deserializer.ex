@@ -12,12 +12,12 @@ defmodule Typesensory.Deserializer do
   @spec deserialize(struct(), :atom, :atom, struct(), keyword()) :: struct()
   def deserialize(model, field, :list, mod, options) do
     model
-    |> Map.update!(field, &(Poison.Decode.decode(&1, Keyword.merge(options, [as: [struct(mod)]]))))
+    |> Map.update!(field, &Poison.Decode.decode(&1, Keyword.merge(options, as: [struct(mod)])))
   end
 
   def deserialize(model, field, :struct, mod, options) do
     model
-    |> Map.update!(field, &(Poison.Decode.decode(&1, Keyword.merge(options, [as: struct(mod)]))))
+    |> Map.update!(field, &Poison.Decode.decode(&1, Keyword.merge(options, as: struct(mod))))
   end
 
   def deserialize(model, field, :map, mod, options) do
@@ -37,6 +37,7 @@ defmodule Typesensory.Deserializer do
 
   def deserialize(model, field, :date, _, _options) do
     value = Map.get(model, field)
+
     case is_binary(value) do
       true ->
         case DateTime.from_iso8601(value) do

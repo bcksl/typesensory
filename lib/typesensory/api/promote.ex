@@ -24,7 +24,10 @@ defmodule Typesensory.Api.Promote do
   - `{:ok, Typesensory.Model.SearchOverride.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec delete_search_override(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, Typesensory.Model.ApiResponse.t} | {:ok, Typesensory.Model.SearchOverride.t} | {:error, Tesla.Env.t}
+  @spec delete_search_override(Tesla.Env.client(), String.t(), String.t(), keyword()) ::
+          {:ok, Typesensory.Model.ApiResponse.t()}
+          | {:ok, Typesensory.Model.SearchOverride.t()}
+          | {:error, Tesla.Env.t()}
   def delete_search_override(connection, collection_name, override_id, _opts \\ []) do
     request =
       %{}
@@ -54,7 +57,8 @@ defmodule Typesensory.Api.Promote do
   - `{:ok, Typesensory.Model.SearchOverridesResponse.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_search_overrides(Tesla.Env.client, String.t, keyword()) :: {:ok, Typesensory.Model.SearchOverridesResponse.t} | {:error, Tesla.Env.t}
+  @spec get_search_overrides(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Typesensory.Model.SearchOverridesResponse.t()} | {:error, Tesla.Env.t()}
   def get_search_overrides(connection, collection_name, _opts \\ []) do
     request =
       %{}
@@ -86,8 +90,23 @@ defmodule Typesensory.Api.Promote do
   - `{:ok, Typesensory.Model.SearchOverride.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec upsert_search_override(Tesla.Env.client, String.t, String.t, Typesensory.Model.SearchOverrideSchema.t, keyword()) :: {:ok, Typesensory.Model.ApiResponse.t} | {:ok, Typesensory.Model.SearchOverride.t} | {:error, Tesla.Env.t}
-  def upsert_search_override(connection, collection_name, override_id, search_override_schema, _opts \\ []) do
+  @spec upsert_search_override(
+          Tesla.Env.client(),
+          String.t(),
+          String.t(),
+          Typesensory.Model.SearchOverrideSchema.t(),
+          keyword()
+        ) ::
+          {:ok, Typesensory.Model.ApiResponse.t()}
+          | {:ok, Typesensory.Model.SearchOverride.t()}
+          | {:error, Tesla.Env.t()}
+  def upsert_search_override(
+        connection,
+        collection_name,
+        override_id,
+        search_override_schema,
+        _opts \\ []
+      ) do
     request =
       %{}
       |> method(:put)

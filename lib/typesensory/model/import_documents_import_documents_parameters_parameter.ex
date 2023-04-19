@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.ImportDocumentsImportDocumentsParametersParameter do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -14,10 +14,10 @@ defmodule Typesensory.Model.ImportDocumentsImportDocumentsParametersParameter do
   ]
 
   @type t :: %__MODULE__{
-    :action => String.t | nil,
-    :batch_size => integer() | nil,
-    :dirty_values => String.t | nil
-  }
+          :action => String.t() | nil,
+          :batch_size => integer() | nil,
+          :dirty_values => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.ImportDocumentsImportDocumentsParametersParameter do
@@ -25,4 +25,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.ImportDocumentsImportDocumentsPar
     value
   end
 end
-

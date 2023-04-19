@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.CollectionAliasSchema do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,8 +12,8 @@ defmodule Typesensory.Model.CollectionAliasSchema do
   ]
 
   @type t :: %__MODULE__{
-    :collection_name => String.t
-  }
+          :collection_name => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.CollectionAliasSchema do
@@ -21,4 +21,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.CollectionAliasSchema do
     value
   end
 end
-

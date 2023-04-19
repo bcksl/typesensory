@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.ErrorResponse do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,8 +12,8 @@ defmodule Typesensory.Model.ErrorResponse do
   ]
 
   @type t :: %__MODULE__{
-    :message => String.t | nil
-  }
+          :message => String.t() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.ErrorResponse do
@@ -21,4 +21,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.ErrorResponse do
     value
   end
 end
-

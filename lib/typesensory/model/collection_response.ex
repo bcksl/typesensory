@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.CollectionResponse do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -19,22 +19,22 @@ defmodule Typesensory.Model.CollectionResponse do
   ]
 
   @type t :: %__MODULE__{
-    :name => String.t,
-    :fields => [Typesensory.Model.Field.t],
-    :default_sorting_field => String.t | nil,
-    :token_separators => [String.t] | nil,
-    :enable_nested_fields => boolean() | nil,
-    :symbols_to_index => [String.t] | nil,
-    :num_documents => integer(),
-    :created_at => integer()
-  }
+          :name => String.t(),
+          :fields => [Typesensory.Model.Field.t()],
+          :default_sorting_field => String.t() | nil,
+          :token_separators => [String.t()] | nil,
+          :enable_nested_fields => boolean() | nil,
+          :symbols_to_index => [String.t()] | nil,
+          :num_documents => integer(),
+          :created_at => integer()
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.CollectionResponse do
   import Typesensory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:fields, :list, Typesensory.Model.Field, options)
   end
 end
-

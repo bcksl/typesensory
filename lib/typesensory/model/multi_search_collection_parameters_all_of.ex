@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.MultiSearchCollectionParametersAllOf do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,8 +12,8 @@ defmodule Typesensory.Model.MultiSearchCollectionParametersAllOf do
   ]
 
   @type t :: %__MODULE__{
-    :collection => String.t
-  }
+          :collection => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.MultiSearchCollectionParametersAllOf do
@@ -21,4 +21,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.MultiSearchCollectionParametersAl
     value
   end
 end
-

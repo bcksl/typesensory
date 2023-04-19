@@ -25,7 +25,8 @@ defmodule Typesensory.Api.Override do
   - `{:ok, Typesensory.Model.SearchOverride.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_search_override(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, Typesensory.Model.SearchOverride.t} | {:error, Tesla.Env.t}
+  @spec get_search_override(Tesla.Env.client(), String.t(), String.t(), keyword()) ::
+          {:ok, Typesensory.Model.SearchOverride.t()} | {:error, Tesla.Env.t()}
   def get_search_override(connection, collection_name, override_id, _opts \\ []) do
     request =
       %{}

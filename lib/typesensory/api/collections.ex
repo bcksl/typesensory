@@ -24,7 +24,10 @@ defmodule Typesensory.Api.Collections do
   - `{:ok, Typesensory.Model.CollectionResponse.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_collection(Tesla.Env.client, Typesensory.Model.CollectionSchema.t, keyword()) :: {:ok, Typesensory.Model.CollectionResponse.t} | {:ok, Typesensory.Model.ApiResponse.t} | {:error, Tesla.Env.t}
+  @spec create_collection(Tesla.Env.client(), Typesensory.Model.CollectionSchema.t(), keyword()) ::
+          {:ok, Typesensory.Model.CollectionResponse.t()}
+          | {:ok, Typesensory.Model.ApiResponse.t()}
+          | {:error, Tesla.Env.t()}
   def create_collection(connection, collection_schema, _opts \\ []) do
     request =
       %{}
@@ -56,7 +59,10 @@ defmodule Typesensory.Api.Collections do
   - `{:ok, Typesensory.Model.CollectionAlias.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec delete_alias(Tesla.Env.client, String.t, keyword()) :: {:ok, Typesensory.Model.CollectionAlias.t} | {:ok, Typesensory.Model.ApiResponse.t} | {:error, Tesla.Env.t}
+  @spec delete_alias(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Typesensory.Model.CollectionAlias.t()}
+          | {:ok, Typesensory.Model.ApiResponse.t()}
+          | {:error, Tesla.Env.t()}
   def delete_alias(connection, alias_name, _opts \\ []) do
     request =
       %{}
@@ -87,7 +93,10 @@ defmodule Typesensory.Api.Collections do
   - `{:ok, Typesensory.Model.CollectionResponse.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec delete_collection(Tesla.Env.client, String.t, keyword()) :: {:ok, Typesensory.Model.CollectionResponse.t} | {:ok, Typesensory.Model.ApiResponse.t} | {:error, Tesla.Env.t}
+  @spec delete_collection(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Typesensory.Model.CollectionResponse.t()}
+          | {:ok, Typesensory.Model.ApiResponse.t()}
+          | {:error, Tesla.Env.t()}
   def delete_collection(connection, collection_name, _opts \\ []) do
     request =
       %{}
@@ -118,7 +127,10 @@ defmodule Typesensory.Api.Collections do
   - `{:ok, Typesensory.Model.CollectionAlias.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_alias(Tesla.Env.client, String.t, keyword()) :: {:ok, Typesensory.Model.CollectionAlias.t} | {:ok, Typesensory.Model.ApiResponse.t} | {:error, Tesla.Env.t}
+  @spec get_alias(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Typesensory.Model.CollectionAlias.t()}
+          | {:ok, Typesensory.Model.ApiResponse.t()}
+          | {:error, Tesla.Env.t()}
   def get_alias(connection, alias_name, _opts \\ []) do
     request =
       %{}
@@ -148,7 +160,8 @@ defmodule Typesensory.Api.Collections do
   - `{:ok, Typesensory.Model.CollectionAliasesResponse.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_aliases(Tesla.Env.client, keyword()) :: {:ok, Typesensory.Model.CollectionAliasesResponse.t} | {:error, Tesla.Env.t}
+  @spec get_aliases(Tesla.Env.client(), keyword()) ::
+          {:ok, Typesensory.Model.CollectionAliasesResponse.t()} | {:error, Tesla.Env.t()}
   def get_aliases(connection, _opts \\ []) do
     request =
       %{}
@@ -178,7 +191,10 @@ defmodule Typesensory.Api.Collections do
   - `{:ok, Typesensory.Model.CollectionResponse.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_collection(Tesla.Env.client, String.t, keyword()) :: {:ok, Typesensory.Model.CollectionResponse.t} | {:ok, Typesensory.Model.ApiResponse.t} | {:error, Tesla.Env.t}
+  @spec get_collection(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Typesensory.Model.CollectionResponse.t()}
+          | {:ok, Typesensory.Model.ApiResponse.t()}
+          | {:error, Tesla.Env.t()}
   def get_collection(connection, collection_name, _opts \\ []) do
     request =
       %{}
@@ -208,7 +224,8 @@ defmodule Typesensory.Api.Collections do
   - `{:ok, [%CollectionResponse{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_collections(Tesla.Env.client, keyword()) :: {:ok, list(Typesensory.Model.CollectionResponse.t)} | {:error, Tesla.Env.t}
+  @spec get_collections(Tesla.Env.client(), keyword()) ::
+          {:ok, list(Typesensory.Model.CollectionResponse.t())} | {:error, Tesla.Env.t()}
   def get_collections(connection, _opts \\ []) do
     request =
       %{}
@@ -239,7 +256,15 @@ defmodule Typesensory.Api.Collections do
   - `{:ok, Typesensory.Model.CollectionUpdateSchema.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec update_collection(Tesla.Env.client, String.t, Typesensory.Model.CollectionUpdateSchema.t, keyword()) :: {:ok, Typesensory.Model.ApiResponse.t} | {:ok, Typesensory.Model.CollectionUpdateSchema.t} | {:error, Tesla.Env.t}
+  @spec update_collection(
+          Tesla.Env.client(),
+          String.t(),
+          Typesensory.Model.CollectionUpdateSchema.t(),
+          keyword()
+        ) ::
+          {:ok, Typesensory.Model.ApiResponse.t()}
+          | {:ok, Typesensory.Model.CollectionUpdateSchema.t()}
+          | {:error, Tesla.Env.t()}
   def update_collection(connection, collection_name, collection_update_schema, _opts \\ []) do
     request =
       %{}
@@ -273,7 +298,10 @@ defmodule Typesensory.Api.Collections do
   - `{:ok, Typesensory.Model.CollectionAlias.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec upsert_alias(Tesla.Env.client, String.t, keyword()) :: {:ok, Typesensory.Model.CollectionAlias.t} | {:ok, Typesensory.Model.ApiResponse.t} | {:error, Tesla.Env.t}
+  @spec upsert_alias(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Typesensory.Model.CollectionAlias.t()}
+          | {:ok, Typesensory.Model.ApiResponse.t()}
+          | {:error, Tesla.Env.t()}
   def upsert_alias(connection, alias_name, opts \\ []) do
     optional_params = %{
       :body => :body

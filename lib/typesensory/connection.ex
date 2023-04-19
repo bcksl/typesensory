@@ -23,7 +23,6 @@ defmodule Typesensory.Connection do
                       "http://localhost"
                     )
 
-
   @typedoc """
   The list of options that can be passed to new/1.
 
@@ -32,7 +31,7 @@ defmodule Typesensory.Connection do
   """
   @type options :: [
           {:base_url, String.t()},
-          {:user_agent, String.t()},
+          {:user_agent, String.t()}
         ]
 
   @doc "Forward requests to Tesla."
@@ -70,9 +69,6 @@ defmodule Typesensory.Connection do
     |> Tesla.client(adapter())
   end
 
-
-
-
   @doc """
   Returns fully configured middleware for passing to Tesla.client/2.
   """
@@ -100,8 +96,6 @@ defmodule Typesensory.Connection do
         )
       )
 
-
-
     [
       {Tesla.Middleware.BaseUrl, base_url},
       {Tesla.Middleware.Headers, [{"user-agent", user_agent}]},
@@ -109,7 +103,6 @@ defmodule Typesensory.Connection do
       | middleware
     ]
   end
-
 
   @doc """
   Returns the default adapter for this API.

@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.SearchOverrideRule do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -13,9 +13,9 @@ defmodule Typesensory.Model.SearchOverrideRule do
   ]
 
   @type t :: %__MODULE__{
-    :query => String.t,
-    :match => String.t
-  }
+          :query => String.t(),
+          :match => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.SearchOverrideRule do
@@ -23,4 +23,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.SearchOverrideRule do
     value
   end
 end
-

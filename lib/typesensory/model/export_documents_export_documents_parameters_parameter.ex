@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.ExportDocumentsExportDocumentsParametersParameter do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -14,10 +14,10 @@ defmodule Typesensory.Model.ExportDocumentsExportDocumentsParametersParameter do
   ]
 
   @type t :: %__MODULE__{
-    :filter_by => String.t | nil,
-    :include_fields => String.t,
-    :exclude_fields => String.t
-  }
+          :filter_by => String.t() | nil,
+          :include_fields => String.t(),
+          :exclude_fields => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.ExportDocumentsExportDocumentsParametersParameter do
@@ -25,4 +25,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.ExportDocumentsExportDocumentsPar
     value
   end
 end
-

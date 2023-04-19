@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.ApiResponse do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,8 +12,8 @@ defmodule Typesensory.Model.ApiResponse do
   ]
 
   @type t :: %__MODULE__{
-    :message => String.t
-  }
+          :message => String.t()
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.ApiResponse do
@@ -21,4 +21,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.ApiResponse do
     value
   end
 end
-

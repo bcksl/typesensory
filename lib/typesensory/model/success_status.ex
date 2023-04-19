@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.SuccessStatus do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -12,8 +12,8 @@ defmodule Typesensory.Model.SuccessStatus do
   ]
 
   @type t :: %__MODULE__{
-    :success => boolean()
-  }
+          :success => boolean()
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.SuccessStatus do
@@ -21,4 +21,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.SuccessStatus do
     value
   end
 end
-

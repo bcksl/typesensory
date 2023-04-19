@@ -23,7 +23,8 @@ defmodule Typesensory.Api.Debug do
   - `{:ok, Typesensory.Model.Debug200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec debug(Tesla.Env.client, keyword()) :: {:ok, Typesensory.Model.Debug200Response.t} | {:error, Tesla.Env.t}
+  @spec debug(Tesla.Env.client(), keyword()) ::
+          {:ok, Typesensory.Model.Debug200Response.t()} | {:error, Tesla.Env.t()}
   def debug(connection, _opts \\ []) do
     request =
       %{}

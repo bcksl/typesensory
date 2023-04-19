@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.SearchResultRequestParams do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -14,10 +14,10 @@ defmodule Typesensory.Model.SearchResultRequestParams do
   ]
 
   @type t :: %__MODULE__{
-    :collection_name => String.t,
-    :q => String.t,
-    :per_page => integer()
-  }
+          :collection_name => String.t(),
+          :q => String.t(),
+          :per_page => integer()
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.SearchResultRequestParams do
@@ -25,4 +25,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.SearchResultRequestParams do
     value
   end
 end
-

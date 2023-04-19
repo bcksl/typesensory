@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.SearchSynonymSchema do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -13,9 +13,9 @@ defmodule Typesensory.Model.SearchSynonymSchema do
   ]
 
   @type t :: %__MODULE__{
-    :root => String.t | nil,
-    :synonyms => [String.t]
-  }
+          :root => String.t() | nil,
+          :synonyms => [String.t()]
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.SearchSynonymSchema do
@@ -23,4 +23,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.SearchSynonymSchema do
     value
   end
 end
-

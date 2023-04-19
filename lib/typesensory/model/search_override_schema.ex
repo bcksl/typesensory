@@ -3,7 +3,7 @@
 
 defmodule Typesensory.Model.SearchOverrideSchema do
   @moduledoc """
-  
+
   """
 
   @derive [Poison.Encoder]
@@ -16,16 +16,17 @@ defmodule Typesensory.Model.SearchOverrideSchema do
   ]
 
   @type t :: %__MODULE__{
-    :rule => Typesensory.Model.SearchOverrideRule.t,
-    :includes => [Typesensory.Model.SearchOverrideInclude.t] | nil,
-    :excludes => [Typesensory.Model.SearchOverrideExclude.t] | nil,
-    :filter_by => String.t | nil,
-    :remove_matched_tokens => boolean() | nil
-  }
+          :rule => Typesensory.Model.SearchOverrideRule.t(),
+          :includes => [Typesensory.Model.SearchOverrideInclude.t()] | nil,
+          :excludes => [Typesensory.Model.SearchOverrideExclude.t()] | nil,
+          :filter_by => String.t() | nil,
+          :remove_matched_tokens => boolean() | nil
+        }
 end
 
 defimpl Poison.Decoder, for: Typesensory.Model.SearchOverrideSchema do
   import Typesensory.Deserializer
+
   def decode(value, options) do
     value
     |> deserialize(:rule, :struct, Typesensory.Model.SearchOverrideRule, options)
@@ -33,4 +34,3 @@ defimpl Poison.Decoder, for: Typesensory.Model.SearchOverrideSchema do
     |> deserialize(:excludes, :list, Typesensory.Model.SearchOverrideExclude, options)
   end
 end
-
