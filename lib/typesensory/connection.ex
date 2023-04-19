@@ -92,7 +92,7 @@ defmodule Typesensory.Connection do
         Keyword.get(
           tesla_options,
           :user_agent,
-          "openapi-generator - Typesensory 0.24.0 - elixir"
+          "Typesensory"
         )
       )
 
